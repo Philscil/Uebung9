@@ -2,7 +2,7 @@ package h1;
 import java.util.ArrayList;
 
 public class PrioListe {
-    ArrayList<Patient> myList = new ArrayList<>();
+    public ArrayList<Patient> myList = new ArrayList<>();
 
     public void addPatient(Patient p) {
 

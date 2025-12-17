@@ -2,7 +2,7 @@ package h2;
 import java.util.ArrayList;
 
 public class Bus {
-    ArrayList<Passenger> passengers;
+    public ArrayList<Passenger> passengers;
 
     public Bus() {
         passengers = new ArrayList<>();
@@ -52,6 +52,7 @@ public class Bus {
             if (!p.ticket) {
                 noTicket.add(p);
                 passengers.remove(p);
+                i--;
             }
         }
 
@@ -59,15 +60,21 @@ public class Bus {
     }
 
     public void transferPassengers(Bus otherBus, String[] passengerNames) {
-        for (String name : passengerNames) {
-            for (int i = 0; i < passengers.size(); i++) {
-                Passenger p = passengers.get(i);
+        
+        for (int i = 0; i < passengers.size(); i++) {
+            Passenger p = passengers.get(i);
+
+            for (String name : passengerNames) {
+
                 if (p.name.equals(name)) {
                     otherBus.enterBus(p);
                     passengers.remove(i);
+                    i--;
                     break;
                 }
+
             }
         }
     }
+
 }
